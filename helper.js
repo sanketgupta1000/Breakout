@@ -1,6 +1,8 @@
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseHandler, false);
+canvas.addEventListener("touchstart", touchHandler, false);
+canvas.addEventListener("touchmove", touchHandler, false);
 
 function keyDownHandler(keyevent)
 {
@@ -32,6 +34,21 @@ function mouseHandler(move)
     if((relativeX>(paddleWidth/2))&&(relativeX<(canvas.width - (paddleWidth/2))))
     {
         paddleX = relativeX - (paddleWidth/2);
+    }
+}
+
+//adding event handler for touch based controlling
+function touchHandler(tevent)
+{
+    if(tevent.touches)
+    {
+        //non-empty touches object
+        let relativeX = (tevent.touches[0]).pageX - canvas.offsetLeft;
+        if((relativeX>(paddleWidth/2))&&(relativeX<(canvas.width - (paddleWidth/2))))
+        {
+            paddleX = relativeX - (paddleWidth/2);
+        }
+        tevent.preventDefault();
     }
 }
 
