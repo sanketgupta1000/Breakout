@@ -8,9 +8,10 @@ A breakout game created using HTML, and JS
 - That's it! Start game.html and have fun!
 
 # Controls
-- Two control schemes:
+- Three control schemes:
 1. Use left and right arrow keys to control paddle.
 2. Move mouse inside red canvas box to control paddle.
+3. Touch controls for mobile phone users.
 
 # Rules
 1. Control ball using paddle to break bricks and earn scores
