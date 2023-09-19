@@ -32,13 +32,15 @@ function updateBall()
     (
         (
             isBetween(x+ballRadius, paddleX, paddleX+paddleWidth)
-            )
-            &&
-            (
-                isStrictlyBetween(y+ballRadius, canvas.height-paddleHeight, canvas.height)
         )
+        &&
+        (
+            ((Math.abs(dy)<6)&&isStrictlyBetween(y+ballRadius, canvas.height-paddleHeight, canvas.height))
+            ||
+            ((Math.abs(dy)>=6)&&isStrictlyBetween(y+ballRadius-(dy/2), canvas.height-paddleHeight, canvas.height))
         )
-        {
+    )
+    {
         dy = -dy;
         dx = -Math.abs(dx);
     }
@@ -47,15 +49,17 @@ function updateBall()
     (
         (
             isBetween(x-ballRadius, paddleX, paddleX+paddleWidth)
-            )
-            &&
-            (
-                isStrictlyBetween(y+ballRadius, canvas.height-paddleHeight, canvas.height)
-                )
-                )
-                {
-                    dy = -dy;
-                    dx = Math.abs(dx);
+        )
+        &&
+        (
+            ((Math.abs(dy)<6)&&isStrictlyBetween(y+ballRadius, canvas.height-paddleHeight, canvas.height))
+            ||
+            ((Math.abs(dy)>=6)&&isStrictlyBetween(y+ballRadius-(dy/2), canvas.height-paddleHeight, canvas.height))
+        )
+    )
+    {
+        dy = -dy;
+        dx = Math.abs(dx);
     }
     //checking if ball is colliding with paddle from below
     else if

@@ -56,6 +56,7 @@ function collisionDetection()
                 score++;
                 checkWin();
                 collisionCount++;
+                return;
             }
             //checking if sideways collision with brick
             else if
@@ -86,6 +87,7 @@ function collisionDetection()
                 score++;
                 checkWin();
                 collisionCount++;
+                return;
             }
         }
     }
