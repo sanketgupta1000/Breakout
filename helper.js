@@ -64,7 +64,9 @@ function checkWin()
 {
     if(score==(brickColumnCount*brickRowCount))
     {
-        alert("CONGRATS! YOU WIN!");
-        document.location.reload();
+        setTimeout(()=>{
+            alert("CONGRATS! YOU WIN!");
+            document.location.reload();
+        }, 25);
     }
 }
